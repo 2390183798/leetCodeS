@@ -1,6 +1,7 @@
-package org.dodo.leetcode;
+package org.dodo.leetcode.t701_800;
 
 
+import org.dodo.leetcode.ISolve;
 import org.dodo.utils.Lg;
 
 public class St741 implements ISolve {
