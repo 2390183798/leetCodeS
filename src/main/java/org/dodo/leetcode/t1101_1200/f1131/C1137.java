@@ -39,9 +39,11 @@ public class C1137 implements ISolve {
 	@Override
 	public void doSth() {
 		int n = 25;
-//		int num = tribonacci(n);
-		int num = tribonacci02(n);
+		int num = tribonacci(n);
+		int num02 = tribonacci02(n);
 		Lg.info("第 N 个泰波那契数 n"+ n +" is " + num);
+		Lg.info("  =  ");
+		Lg.info("第 N 个泰波那契数2 n"+ n +" is " + num02);
 	}
 
 	public int tribonacci(int n) {

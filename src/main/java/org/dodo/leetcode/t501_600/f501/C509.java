@@ -48,9 +48,12 @@ public class C509 implements ISolve {
 	@Override
 	public void doSth() {
 		int n = 4;
-//		int num = fib(n);
-		int num = fib02(n);
-		Lg.info("斐波那契数列 n"+ n +" is " + num);
+		int num = fib(n);
+		int num02 = fib02(n);
+
+		Lg.info("斐波那契数列1 n"+ n +" is " + num);
+		Lg.info("  =  ");
+		Lg.info("斐波那契数列2 n"+ n +" is " + num02);
 	}
 
 

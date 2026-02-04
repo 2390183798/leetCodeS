@@ -41,9 +41,11 @@ public class C70 implements ISolve {
 	@Override
 	public void doSth() {
 		int n = 5;
-//		int num = climbStairs(n);
-		int num = climbStairs02(n);
-		Lg.info("爬梯子 n"+ n +" is " + num);
+		int num = climbStairs(n);
+		int num02 = climbStairs02(n);
+		Lg.info("爬梯子1 n"+ n +" is " + num);
+		Lg.info("  =  ");
+		Lg.info("爬梯子2 n"+ n +" is " + num02);
 	}
 
 	public int climbStairs(int n) {
