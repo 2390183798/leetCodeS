@@ -1,4 +1,4 @@
-package org.dodo.leetcode.t501_600;
+package org.dodo.leetcode.t501_600.f501;
 
 
 import org.dodo.leetcode.ISolve;
