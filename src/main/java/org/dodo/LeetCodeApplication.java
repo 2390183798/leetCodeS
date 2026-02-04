@@ -12,8 +12,8 @@ public class LeetCodeApplication {
 	 * 动态规划： utils/type/动态规划
 	 */
 	static void doDtgh(){
-		DoScanner.doSth(70);
-//		DoScanner.doSth(509);
+//		DoScanner.doSth(70);	// 爬楼梯
+		DoScanner.doSth(509);		// 斐波那契数列
 	}
 
 }
