@@ -7,7 +7,7 @@ public class StApp501 implements ISolve {
 
 	public void doSth(){
 		ISolve solve = null;
-		solve = new St509();
+		solve = new C509();
 		solve.doSth();
 	}
 

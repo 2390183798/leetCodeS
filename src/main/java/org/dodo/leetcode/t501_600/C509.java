@@ -2,9 +2,11 @@ package org.dodo.leetcode.t501_600;
 
 
 import org.dodo.leetcode.ISolve;
+import org.dodo.utils.ClassNum;
 import org.dodo.utils.Lg;
 
-public class St509 implements ISolve {
+@ClassNum(509)
+public class C509 implements ISolve {
 
 	@Override
 	public void doSth() {
