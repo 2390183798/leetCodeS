@@ -46,9 +46,24 @@ public class C746 implements ISolve {
 //			0 <= cost[i] <= 999
 
 
+//	思考过程：
+//	1层:
+//		sum1 = 0
+//		sum1Done = sum1 + cost[1]
+//	2层:
+//		sum2 = Math.min(cost[1], cost[0])
+//		sum2Done = sum2 + cost[2]
+//
+//	3层:
+//		sum3 = Math.min(sum2Done, sum1Done)
+//		sum3Done = sum3 + cost[3]
+//
+//	4层:
+//		sum4 = Math.min(sum2Done, sum1Done)
 
 	@Override
 	public void doSth() {
+//		int[] cost = new int[]{10,15};	// 答案 10
 		int[] cost = new int[]{10,15,20};	// 答案 15
 //		int[] cost = new int[]{1,100,1,1,1,100,1,1,100,1};	// 答案 6
 		int num = solve01(cost);
@@ -67,18 +82,16 @@ public class C746 implements ISolve {
 	public int solve01(int[] cost) {
 		int length = cost.length;
 		// 用 数组记录 对于 index的 最小和
-		int sunEnd0 = 0;
-		int sunEnd1 = Math.min(cost[0], cost[1]);
-		int tempSum = 0;
+		int sumEnd0 = 0;	// 最前面的， 现在是 index是0的最低花费是0 （直接爬2台阶）
+		int sumEnd1 = Math.min(cost[1], cost[0]); // 倒数第2的， 现在是 index是1的最低花费， 前面2个值中最小的
 		for(int i=2; i<length; i++){
-			// 对应 index为 i的最小和为：  下列2个中的最小值
-			//			i-1 最小和 + cost[i]
-			//			i-2 最小和 + cost[i-1]
-			sunEnd0 += cost[i-1];
-			sunEnd1 += cost[i];
-			tempSum = Math.min(sunEnd1 , sunEnd0);
+			// 第1轮， 也就是 index是2个时候
+			int temp0 = sumEnd0 + cost[i-1];	// 如果前面是2台阶上来的，当前花费需要加上 cost[i-1] (第1轮，是cost1)
+			int temp1 = sumEnd1 + cost[i];		// 如果前面是2台阶上来的，当前花费需要加上 cost[i-1] (第1轮，是cost1)
+			sumEnd0 =  sumEnd1;
+			sumEnd1 = Math.min(temp1 , temp0);
 		}
-		return tempSum;
+		return sumEnd1;
 	}
 
 
@@ -87,7 +100,7 @@ public class C746 implements ISolve {
 		int[] mini = new int[length];
 		// 用 数组记录 对于 index的 最小和
 		mini[0] = 0;
-		mini[1] = Math.min(cost[0], cost[1]);
+		mini[1] = Math.min(mini[0] + cost[1], cost[0]);
 		for(int i=2; i<length; i++){
 			// 对应 index为 i的最小和为：  下列2个中的最小值
 			//			i-1 最小和 + cost[i]
