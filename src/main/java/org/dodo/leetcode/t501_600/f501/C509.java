@@ -79,13 +79,13 @@ public class C509 implements ISolve {
 		if(n==1){
 			return 1;
 		}
-		int[] arr = new int[n];
+		int[] arr = new int[n+1];
 		arr[0] = 0;
 		arr[1] = 1;
-		for(int i=2; i<n; i++){
+		for(int i=2; i<=n; i++){
 			arr[i] = arr[i-1] + arr[i-2];
 		}
-		return arr[n-1] + arr[n-2];
+		return arr[n];
 	}
 
 

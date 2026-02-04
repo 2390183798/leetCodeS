@@ -13,7 +13,8 @@ public class LeetCodeApplication {
 	 */
 	static void doDtgh(){
 //		DoScanner.doSth(70);	// 爬楼梯
-		DoScanner.doSth(509);		// 斐波那契数列
+//		DoScanner.doSth(509);		// 斐波那契数列
+		DoScanner.doSth(1137);		// 第N个 泰波那契数
 	}
 
 }
