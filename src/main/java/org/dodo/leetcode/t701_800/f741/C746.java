@@ -65,9 +65,9 @@ public class C746 implements ISolve {
 
 	@Override
 	public void doSth() {
-		int[] cost = new int[]{10,15};	// 答案 10
+//		int[] cost = new int[]{10,15};	// 答案 10
 //		int[] cost = new int[]{10,15,20};	// 答案 15
-//		int[] cost = new int[]{1,100,1,1,1,100,1,1,100,1};	// 答案 6
+		int[] cost = new int[]{1,100,1,1,1,100,1,1,100,1};	// 答案 6
 
 		Lg.info(TAG + "1 is " + minCostClimbingStairs(cost));
 		Lg.info("  =  ");
@@ -112,9 +112,9 @@ public class C746 implements ISolve {
 
 	public int minCostClimbingStairs03(int[] cost){
 		int sumEnd0 = 0;
-		int sumEnd1 = 0;
-		for(int i=2; i<=cost.length; i++){
-			int next = Math.min(sumEnd1 + cost[i-1], sumEnd0 + cost[i-2]);
+		int sumEnd1 = Math.min(cost[1], cost[0]);
+		for(int i=2; i<cost.length; i++){
+			int next = Math.min(sumEnd1 + cost[i], sumEnd0 + cost[i-1]);
 			sumEnd0 = sumEnd1;
 			sumEnd1 = next;
 		}
