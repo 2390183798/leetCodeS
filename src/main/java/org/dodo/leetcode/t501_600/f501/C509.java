@@ -47,13 +47,18 @@ public class C509 implements ISolve {
 
 	@Override
 	public void doSth() {
-//		int n = 4;
-		int n = 14;
+//		int n = 1;
+//		int n = 2;
+//		int n = 3;
+		int n = 4;
+//		int n = 14;
 		Lg.info("斐波那契数列1 n"+ n +" is " + fib(n));
 		Lg.info("  =  ");
 		Lg.info("斐波那契数列2 n"+ n +" is " + fib02(n));
 		Lg.info("  =  ");
 		Lg.info("斐波那契数列3 n"+ n +" is " + fib03(n));
+		Lg.info("  =  ");
+		Lg.info("斐波那契数列4 n"+ n +" is " + fib04(n));
 	}
 
 
@@ -96,6 +101,15 @@ public class C509 implements ISolve {
 			end2 = tempSum;
 		}
 		return end2;
+	}
+
+	public int fib04(int n) {
+		if(n <= 1){
+			return n;
+		}
+		double num01 = Math.pow((1 + Math.sqrt(5)) / 2, n);
+		double num02 = Math.pow((1 - Math.sqrt(5)) / 2, n);
+		return (int)Math.round((num01 - num02)/ Math.sqrt(5));
 	}
 
 
