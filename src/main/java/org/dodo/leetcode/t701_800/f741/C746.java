@@ -61,47 +61,24 @@ public class C746 implements ISolve {
 //	4层:
 //		sum4 = Math.min(sum2Done, sum1Done)
 
+	String TAG = "使用最小花费爬楼梯";
+
 	@Override
 	public void doSth() {
-//		int[] cost = new int[]{10,15};	// 答案 10
-		int[] cost = new int[]{10,15,20};	// 答案 15
+		int[] cost = new int[]{10,15};	// 答案 10
+//		int[] cost = new int[]{10,15,20};	// 答案 15
 //		int[] cost = new int[]{1,100,1,1,1,100,1,1,100,1};	// 答案 6
-		int num = solve01(cost);
-		int num02 = solve02(cost);
-		int num03 = solve03(cost);
-		int num04 = solve04(cost);
-		Lg.info("使用最小花费爬楼梯1 is " + num);
-		Lg.info("  =  ");
-		Lg.info("使用最小花费爬楼梯2 is " + num02);
-		Lg.info("  =  ");
-		Lg.info("使用最小花费爬楼梯3 is " + num03);
-		Lg.info("  =  ");
-		Lg.info("使用最小花费爬楼梯4 is " + num04);
-	}
 
-	public void minCostClimbingStairs(int[] cost) {
-		int num = solve01(cost);
-		Lg.info("miniCost is " + num);
+		Lg.info(TAG + "1 is " + solve01(cost));
+		Lg.info("  =  ");
+		Lg.info(TAG + "2 is " + solve02(cost));
+		Lg.info("  =  ");
+		Lg.info(TAG + "3 is " + solve03(cost));
+		Lg.info("  =  ");
+		Lg.info(TAG + "4 is " + solve04(cost));
 	}
-
 
 	public int solve01(int[] cost) {
-		int length = cost.length;
-		// 用 数组记录 对于 index的 最小和
-		int sumEnd0 = 0;	// 最前面的， 现在是 index是0的最低花费是0 （直接爬2台阶）
-		int sumEnd1 = Math.min(cost[1], cost[0]); // 倒数第2的， 现在是 index是1的最低花费， 前面2个值中最小的
-		for(int i=2; i<length; i++){
-			// 第1轮， 也就是 index是2个时候
-			int temp0 = sumEnd0 + cost[i-1];	// 如果前面是2台阶上来的，当前花费需要加上 cost[i-1] (第1轮，是cost1)
-			int temp1 = sumEnd1 + cost[i];		// 如果前面是2台阶上来的，当前花费需要加上 cost[i-1] (第1轮，是cost1)
-			sumEnd0 =  sumEnd1;
-			sumEnd1 = Math.min(temp1 , temp0);
-		}
-		return sumEnd1;
-	}
-
-
-	public int solve02(int[] cost) {
 		int length = cost.length;
 		int[] mini = new int[length];
 		// 用 数组记录 对于 index的 最小和
@@ -114,6 +91,22 @@ public class C746 implements ISolve {
 			mini[i] = Math.min(mini[i-1] + cost[i], mini[i-2] + cost[i-1]);
 		}
 		return mini[length-1];
+	}
+
+
+	public int solve02(int[] cost) {
+		int length = cost.length;
+		// 用 数组记录 对于 index的 最小和
+		int sumEnd0 = 0;	// 最前面的， 现在是 index是0的最低花费是0 （直接爬2台阶）
+		int sumEnd1 = Math.min(cost[1], cost[0]); // 倒数第2的， 现在是 index是1的最低花费， 前面2个值中最小的
+		for(int i=2; i<length; i++){
+			// 第1轮， 也就是 index是2个时候
+			int temp0 = sumEnd0 + cost[i-1];	// 如果前面是2台阶上来的，当前花费需要加上 cost[i-1] (第1轮，是cost1)
+			int temp1 = sumEnd1 + cost[i];		// 如果前面是2台阶上来的，当前花费需要加上 cost[i-1] (第1轮，是cost1)
+			sumEnd0 =  sumEnd1;
+			sumEnd1 = Math.min(temp1 , temp0);
+		}
+		return sumEnd1;
 	}
 
 
