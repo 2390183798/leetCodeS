@@ -69,21 +69,21 @@ public class C746 implements ISolve {
 //		int[] cost = new int[]{10,15,20};	// 答案 15
 //		int[] cost = new int[]{1,100,1,1,1,100,1,1,100,1};	// 答案 6
 
-		Lg.info(TAG + "1 is " + solve01(cost));
+		Lg.info(TAG + "1 is " + minCostClimbingStairs(cost));
 		Lg.info("  =  ");
-		Lg.info(TAG + "2 is " + solve02(cost));
+		Lg.info(TAG + "2 is " + minCostClimbingStairs02(cost));
 		Lg.info("  =  ");
-		Lg.info(TAG + "3 is " + solve03(cost));
+		Lg.info(TAG + "3 is " + minCostClimbingStairs03(cost));
 		Lg.info("  =  ");
-		Lg.info(TAG + "4 is " + solve04(cost));
+		Lg.info(TAG + "4 is " + minCostClimbingStairs04(cost));
 	}
 
-	public int solve01(int[] cost) {
+	public int minCostClimbingStairs(int[] cost) {
 		int length = cost.length;
 		int[] mini = new int[length];
 		// 用 数组记录 对于 index的 最小和
 		mini[0] = 0;
-		mini[1] = Math.min(mini[0] + cost[1], cost[0]);
+		mini[1] = Math.min(cost[1], cost[0]);
 		for(int i=2; i<length; i++){
 			// 对应 index为 i的最小和为：  下列2个中的最小值
 			//			i-1 最小和 + cost[i]
@@ -94,7 +94,7 @@ public class C746 implements ISolve {
 	}
 
 
-	public int solve02(int[] cost) {
+	public int minCostClimbingStairs02(int[] cost) {
 		int length = cost.length;
 		// 用 数组记录 对于 index的 最小和
 		int sumEnd0 = 0;	// 最前面的， 现在是 index是0的最低花费是0 （直接爬2台阶）
@@ -110,7 +110,7 @@ public class C746 implements ISolve {
 	}
 
 
-	public int solve03(int[] cost){
+	public int minCostClimbingStairs03(int[] cost){
 		int sumEnd0 = 0;
 		int sumEnd1 = 0;
 		for(int i=2; i<=cost.length; i++){
@@ -122,7 +122,7 @@ public class C746 implements ISolve {
 	}
 
 
-	public int solve04(int[] cost){
+	public int minCostClimbingStairs04(int[] cost){
 		int n = cost.length;
 		for(int i=2; i<n; i++){
 			cost[i] += Math.min(cost[i-1], cost[i-2]);
