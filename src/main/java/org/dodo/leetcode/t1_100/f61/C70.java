@@ -37,30 +37,26 @@ public class C70 implements ISolve {
 //			1 <= n <= 45
 //
 
+	String TAG = "爬梯子";
 
 	@Override
 	public void doSth() {
-		int n = 5;
-		int num = climbStairs(n);
-		int num02 = climbStairs02(n);
-		Lg.info("爬梯子1 n"+ n +" is " + num);
+//		int n = 5;
+//		int n = 2;
+//		int n = 3;
+//		int n = 4;
+//		int n = 5;
+		int n = 45;
+		Lg.info(TAG + "1 is " + climbStairs(n));
 		Lg.info("  =  ");
-		Lg.info("爬梯子2 n"+ n +" is " + num02);
+		Lg.info(TAG + "2 is " + climbStairs02(n));
+		Lg.info("  =  ");
+		Lg.info(TAG + "3 is " + climbStairs03(n));
+		Lg.info("  =  ");
+		Lg.info(TAG + "4 is " + climbStairs04(n));
 	}
 
 	public int climbStairs(int n) {
-		int end1 = 1;
-		int end2 = 1;
-		int tempSum = 0;
-		for(int i=0; i<n-1; i++){
-			tempSum = end1 + end2;
-			end1 = end2;
-			end2 = tempSum;
-		}
-		return end2;
-	}
-
-	public int climbStairs02(int n) {
 		if(n == 1){
 			return 1;
 		}
@@ -73,6 +69,39 @@ public class C70 implements ISolve {
 		return arr[n-1] + arr[n-2];
 	}
 
+	public int climbStairs02(int n) {
+		if(n == 1){
+			return 1;
+		}
+		int[] arr = new int[n+1];
+		arr[0] = 1;
+		arr[1] = 1;
+		for(int i=2; i<=n; i++){
+			arr[i] = arr[i-1] + arr[i-2];
+		}
+		return arr[n];
+	}
 
+	public int climbStairs03(int n) {
+		int end1 = 1;
+		int end2 = 1;
+		int tempSum = 0;
+		for(int i=2; i<=n; i++){
+			tempSum = end1 + end2;
+			end1 = end2;
+			end2 = tempSum;
+		}
+		return tempSum;
+	}
+
+
+	public int climbStairs04(int n) {
+		if(n <= 3){
+			return n;
+		}
+		double num01 = Math.pow((1 + Math.sqrt(5)) / 2, n+1);
+		double num02 = Math.pow((1 - Math.sqrt(5)) / 2, n+1);
+		return (int)Math.round((num01 - num02)/ Math.sqrt(5));
+	}
 
 }

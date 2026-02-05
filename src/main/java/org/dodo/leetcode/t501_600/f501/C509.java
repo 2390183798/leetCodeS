@@ -47,22 +47,45 @@ public class C509 implements ISolve {
 
 	@Override
 	public void doSth() {
-		int n = 4;
-		int num = fib(n);
-		int num02 = fib02(n);
-
-		Lg.info("斐波那契数列1 n"+ n +" is " + num);
+//		int n = 4;
+		int n = 14;
+		Lg.info("斐波那契数列1 n"+ n +" is " + fib(n));
 		Lg.info("  =  ");
-		Lg.info("斐波那契数列2 n"+ n +" is " + num02);
+		Lg.info("斐波那契数列2 n"+ n +" is " + fib02(n));
+		Lg.info("  =  ");
+		Lg.info("斐波那契数列3 n"+ n +" is " + fib03(n));
 	}
 
 
 	public int fib(int n) {
-		if(n==0){
-			return 0;
+		if(n<=1){
+			return n;
 		}
-		if(n==1){
-			return 1;
+		int[] arr = new int[n];
+		arr[0] = 0;
+		arr[1] = 1;
+		for(int i=2; i<n; i++){
+			arr[i] = arr[i-1] + arr[i-2];
+		}
+		return arr[n-1] + arr[n-2];
+	}
+
+	public int fib02(int n) {
+		if(n<=1){
+			return n;
+		}
+		int[] arr = new int[n+1];
+		arr[0] = 0;
+		arr[1] = 1;
+		for(int i=2; i<=n; i++){
+			arr[i] = arr[i-1] + arr[i-2];
+		}
+		return arr[n];
+	}
+
+	public int fib03(int n) {
+		if(n<=1){
+			return n;
 		}
 		int end1 = 0;
 		int end2 = 1;
@@ -73,22 +96,6 @@ public class C509 implements ISolve {
 			end2 = tempSum;
 		}
 		return end2;
-	}
-
-	public int fib02(int n) {
-		if(n==0){
-			return 0;
-		}
-		if(n==1){
-			return 1;
-		}
-		int[] arr = new int[n+1];
-		arr[0] = 0;
-		arr[1] = 1;
-		for(int i=2; i<=n; i++){
-			arr[i] = arr[i-1] + arr[i-2];
-		}
-		return arr[n];
 	}
 
 
