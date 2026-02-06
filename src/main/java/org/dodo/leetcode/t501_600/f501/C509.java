@@ -52,13 +52,13 @@ public class C509 implements ISolve {
 //		int n = 3;
 		int n = 4;
 //		int n = 14;
-		Lg.info("斐波那契数列1 n"+ n +" is " + fib(n));
-		Lg.info("  =  ");
-		Lg.info("斐波那契数列2 n"+ n +" is " + fib02(n));
-		Lg.info("  =  ");
-		Lg.info("斐波那契数列3 n"+ n +" is " + fib03(n));
-		Lg.info("  =  ");
-		Lg.info("斐波那契数列4 n"+ n +" is " + fib04(n));
+		Lg.infoClass("斐波那契数列1 n"+ n +" is " + fib(n));
+		Lg.infoClass("  =  ");
+		Lg.infoClass("斐波那契数列2 n"+ n +" is " + fib02(n));
+		Lg.infoClass("  =  ");
+		Lg.infoClass("斐波那契数列3 n"+ n +" is " + fib03(n));
+		Lg.infoClass("  =  ");
+		Lg.infoClass("斐波那契数列4 n"+ n +" is " + fib04(n));
 	}
 
 

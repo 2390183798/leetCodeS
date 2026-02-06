@@ -69,13 +69,13 @@ public class C746 implements ISolve {
 //		int[] cost = new int[]{10,15,20};	// 答案 15
 		int[] cost = new int[]{1,100,1,1,1,100,1,1,100,1};	// 答案 6
 
-		Lg.info(TAG + "1 is " + minCostClimbingStairs(cost));
-		Lg.info("  =  ");
-		Lg.info(TAG + "2 is " + minCostClimbingStairs02(cost));
-		Lg.info("  =  ");
-		Lg.info(TAG + "3 is " + minCostClimbingStairs03(cost));
-		Lg.info("  =  ");
-		Lg.info(TAG + "4 is " + minCostClimbingStairs04(cost));
+		Lg.infoClass(TAG + "1 is " + minCostClimbingStairs(cost));
+		Lg.infoClass("  =  ");
+		Lg.infoClass(TAG + "2 is " + minCostClimbingStairs02(cost));
+		Lg.infoClass("  =  ");
+		Lg.infoClass(TAG + "3 is " + minCostClimbingStairs03(cost));
+		Lg.infoClass("  =  ");
+		Lg.infoClass(TAG + "4 is " + minCostClimbingStairs04(cost));
 	}
 
 	public int minCostClimbingStairs(int[] cost) {

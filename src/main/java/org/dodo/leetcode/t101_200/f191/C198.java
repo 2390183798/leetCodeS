@@ -56,9 +56,9 @@ public class C198 implements ISolve {
 	public void doSth() {
 //		int[] data = new int[]{1,2,3,1};	// 4
 		int[] data = new int[]{2,7,9,3,1};	// 12
-		Lg.info(TAG + "1 is " + rob(data));
-		Lg.info("  =  ");
-		Lg.info(TAG + "2 is " + rob02(data));
+		Lg.infoClass(TAG + "1 is " + rob(data));
+		Lg.infoClass("  =  ");
+		Lg.infoClass(TAG + "2 is " + rob02(data));
 //		Lg.info("  =  ");
 //		Lg.info(TAG + "3 is " + rob03(data));
 	}

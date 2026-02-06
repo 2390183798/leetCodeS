@@ -47,13 +47,13 @@ public class C70 implements ISolve {
 //		int n = 4;
 //		int n = 5;
 		int n = 45;
-		Lg.info(TAG + "1 is " + climbStairs(n));
-		Lg.info("  =  ");
-		Lg.info(TAG + "2 is " + climbStairs02(n));
-		Lg.info("  =  ");
-		Lg.info(TAG + "3 is " + climbStairs03(n));
-		Lg.info("  =  ");
-		Lg.info(TAG + "4 is " + climbStairs04(n));
+		Lg.infoClass(TAG + "1 is " + climbStairs(n));
+		Lg.infoClass("  =  ");
+		Lg.infoClass(TAG + "2 is " + climbStairs02(n));
+		Lg.infoClass("  =  ");
+		Lg.infoClass(TAG + "3 is " + climbStairs03(n));
+		Lg.infoClass("  =  ");
+		Lg.infoClass(TAG + "4 is " + climbStairs04(n));
 	}
 
 	public int climbStairs(int n) {

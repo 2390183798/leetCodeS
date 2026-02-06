@@ -52,9 +52,9 @@ public class C62 implements ISolve {
 	public void doSth() {
 		int m = 3, n = 7;   // 28
 //		int m = 3, n = 2;   // 3
-		Lg.info(TAG +"1 is " + uniquePaths(m, n));
-		Lg.info("  =  ");
-		Lg.info(TAG + "2 is " + uniquePaths02(m, n));
+		Lg.infoClass(TAG +"1 is " + uniquePaths(m, n));
+		Lg.infoClass("  =  ");
+		Lg.infoClass(TAG + "2 is " + uniquePaths02(m, n));
 	}
 
 	public int uniquePaths(int m, int n) {

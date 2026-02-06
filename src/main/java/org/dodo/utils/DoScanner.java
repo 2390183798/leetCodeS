@@ -17,7 +17,7 @@ public class DoScanner {
             // 假设我们要扫描 com.example 包下带有 MyAnnotation 注解的类
             List<Class<?>> annotatedClasses = scanPackage(pack, ClassNum.class);
 //            Set<Class<?>> annotatedClasses = scanPackage(pack, ClassNum.class);
-            Lg.info("Found " + annotatedClasses.size() + " classes with @ClassNum:");
+            Lg.infoClass("Found " + annotatedClasses.size() + " classes with @ClassNum:");
 //            Lg.info((Arrays.toString(annotatedClasses.toArray())));
             boolean hasMatch = false;
             for (Class<?> clazz : annotatedClasses) {
@@ -33,14 +33,14 @@ public class DoScanner {
                         continue;
                     }
                     hasMatch = true;
-                    Lg.info("<==============下面是结果================>");
+                    Lg.infoClass("<==============下面是结果================>");
                     ((ISolve) obj).doSth();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
             if(!hasMatch){
-                Lg.info("没有匹配的类！！");
+                Lg.infoClass("没有匹配的类！！");
             }
         } catch (Exception e) {
             e.printStackTrace();
