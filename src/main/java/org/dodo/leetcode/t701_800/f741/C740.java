@@ -65,11 +65,7 @@ public class C740 implements ISolve {
 			return nums[0];
 		}
 		int max = getMaxNum(nums);
-
-		int[] all = new int[max + 1];
-		for (int item : nums) {
-			all[item] ++;
-		}
+		int[] all = getNewArray(nums, max);
 		int[] dp = new int[max + 1];
 		dp[1] = all[1];
 		for (int i = 2; i <= max; ++i) {
@@ -85,11 +81,7 @@ public class C740 implements ISolve {
 			return nums[0];
 		}
 		int max = getMaxNum(nums);
-
-		int[] all = new int[max + 1];
-		for (int item : nums) {
-			all[item] ++;
-		}
+		int[] all = getNewArray(nums, max);
 		int pre = 0;
 		int cur = all[1];
 		int next = 0;
@@ -108,11 +100,7 @@ public class C740 implements ISolve {
 			return nums[0];
 		}
 		int max = getMaxNum(nums);
-
-		int[] all = new int[max + 1];
-		for (int item : nums) {
-			all[item] ++;
-		}
+		int[] all = getNewArray(nums, max);
 		for (int i = 2; i <= max; ++i) {
 			all[i] = Math.max(all[i-1], all[i-2] + i * all[i]);
 		}
@@ -126,6 +114,13 @@ public class C740 implements ISolve {
 			max = Math.max(max, num);
 		}
 		return max;
+	}
+	private int[] getNewArray(int[] nums, int max){
+		int[] all = new int[max + 1];
+		for (int item : nums) {
+			all[item] ++;
+		}
+		return all;
 	}
 
 }
