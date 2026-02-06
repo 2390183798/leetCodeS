@@ -48,9 +48,13 @@ public class C740 implements ISolve {
 
 	@Override
 	public void doSth() {
-		int[] nums = new int[]{2,2,3,3,3,4};
-//		int[] nums = new int[]{3,3,3,3,3,3};
+		int[] nums = new int[]{2,2,3,3,3,4}; // 9
+//		int[] nums = new int[]{3,4,2};  // 6
 		Lg.infoClass(TAG + "1 is " + deleteAndEarn(nums));
+		Lg.infoClass("  =  ");
+		Lg.infoClass(TAG + "2 is " + deleteAndEarn02(nums));
+		Lg.infoClass("  =  ");
+		Lg.infoClass(TAG + "3 is " + deleteAndEarn03(nums));
 		Lg.infoClass("  =  ");
 	}
 
@@ -61,7 +65,7 @@ public class C740 implements ISolve {
 			return nums[0];
 		}
 		int max = getMaxNum(nums);
-//      构造一个新的数组all，举例，如果 all[8] 是 3, 说明 nums 数组里等于8 的元素有3个
+
 		int[] all = new int[max + 1];
 		for (int item : nums) {
 			all[item] ++;
@@ -72,6 +76,47 @@ public class C740 implements ISolve {
 			dp[i] = Math.max(dp[i - 1], dp[i - 2] + i * all[i]);
 		}
 		return dp[max];
+	}
+
+	public int deleteAndEarn02(int[] nums) {
+		if (nums.length == 0) {
+			return 0;
+		} else if (nums.length == 1) {
+			return nums[0];
+		}
+		int max = getMaxNum(nums);
+
+		int[] all = new int[max + 1];
+		for (int item : nums) {
+			all[item] ++;
+		}
+		int pre = 0;
+		int cur = all[1];
+		int next = 0;
+		for (int i = 2; i <= max; ++i) {
+			next = Math.max(cur, pre + i * all[i]);
+			pre = cur;
+			cur = next;
+		}
+		return cur;
+	}
+
+	public int deleteAndEarn03(int[] nums) {
+		if (nums.length == 0) {
+			return 0;
+		} else if (nums.length == 1) {
+			return nums[0];
+		}
+		int max = getMaxNum(nums);
+
+		int[] all = new int[max + 1];
+		for (int item : nums) {
+			all[item] ++;
+		}
+		for (int i = 2; i <= max; ++i) {
+			all[i] = Math.max(all[i-1], all[i-2] + i * all[i]);
+		}
+		return all[max];
 	}
 
 

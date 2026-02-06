@@ -59,8 +59,8 @@ public class C198 implements ISolve {
 		Lg.infoClass(TAG + "1 is " + rob(data));
 		Lg.infoClass("  =  ");
 		Lg.infoClass(TAG + "2 is " + rob02(data));
-//		Lg.info("  =  ");
-//		Lg.info(TAG + "3 is " + rob03(data));
+		Lg.infoClass("  =  ");
+		Lg.infoClass(TAG + "3 is " + rob03(data));
 	}
 
 	public int rob(int[] nums) {
@@ -103,7 +103,7 @@ public class C198 implements ISolve {
 		}
 
 		for(int i=2; i<n; i++){
-			nums[i] += Math.max(nums[i-1], nums[i-2]);
+			nums[i] = Math.max(nums[i-1], nums[i-2] + nums[i]);
 		}
 		return Math.max(nums[n-1], nums[n-2]);
 	}
