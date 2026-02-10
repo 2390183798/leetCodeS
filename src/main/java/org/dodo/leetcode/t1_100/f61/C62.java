@@ -5,6 +5,8 @@ import org.dodo.leetcode.ISolve;
 import org.dodo.utils.ClassNum;
 import org.dodo.utils.Lg;
 
+import java.util.Arrays;
+
 @ClassNum(62)
 public class C62 implements ISolve {
 
@@ -55,15 +57,90 @@ public class C62 implements ISolve {
 		Lg.infoClass(TAG +"1 is " + uniquePaths(m, n));
 		Lg.infoClass("  =  ");
 		Lg.infoClass(TAG + "2 is " + uniquePaths02(m, n));
+		Lg.infoClass("  =  ");
+		Lg.infoClass(TAG + "3 is " + uniquePaths03(m, n));
+		Lg.infoClass("  =  ");
+		Lg.infoClass(TAG + "4 is " + uniquePaths04(m, n));
 	}
 
 	public int uniquePaths(int m, int n) {
-		return 0;
+//		int[][] dp = initArr(m,n);
+		int[][] dp = new int[m][n];
+		for(int i=0; i< Math.max(m, n); i++){
+			if(i<m){
+				dp[i][0] = 1;
+			}
+			if(i<n){
+				dp[0][i] = 1;
+			}
+		}
+		//两个for循环推导，对于(i,j)来说，只能由上方或者左方转移过来
+		for(int i = 1; i < m; i++) {
+			for(int j = 1; j < n; j++) {
+				dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+			}
+		}
+		return dp[m - 1][n - 1];
 	}
 
 	public int uniquePaths02(int m, int n) {
-		return 0;
+		int[][] dp=new int[m][n];
+		for(int i=0;i<m;i++){
+			for(int j=0;j<n;j++){
+				if(i*j==0){
+					dp[i][j]=1;
+				} else {
+					dp[i][j]=dp[i-1][j]+dp[i][j-1];
+				}
+			}
+		}
+		return dp[m-1][n-1];
 	}
 
+	public int uniquePaths03(int m, int n) {
+		int[] dp = new int[m];
+		Arrays.fill(dp, 1);
+		for (int j = 1; j < n; j++)
+			for (int i = 1; i < m; i++)
+				dp[i] += dp[i - 1];
+		return dp[m - 1];
+	}
+
+	public int uniquePaths04(int m, int n) {
+		int[] dp = new int[m];
+		for (int j = 0; j < n; j++){
+			for (int i = 0; i < m; i++){
+				if(i==0){
+					dp[i] = 1;
+				} else {
+					dp[i] += dp[i - 1];
+				}
+			}
+		}
+		return dp[m - 1];
+	}
+
+
+	public int[][] initArr(int m, int n){
+		int[][] dp = new int[m][n];
+//		//第一行都赋予 1
+//		for(int i = 0; i < m; ++i) {
+//			dp[i][0] = 1;
+//		}
+//		//第一列都赋予 1
+//		for(int j = 0; j < n; ++j) {
+//			dp[0][j] = 1;
+//		}
+		for(int i=0; i< Math.max(m, n); i++){
+			if(i<m){
+				dp[i][0] = 1;
+			}
+			if(i<n){
+				dp[0][i] = 1;
+			}
+		}
+
+		return dp;
+	}
 
 }

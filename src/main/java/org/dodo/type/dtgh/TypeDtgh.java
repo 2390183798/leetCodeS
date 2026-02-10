@@ -21,7 +21,7 @@ public class TypeDtgh {
     }
 
     /**
-     * 斐波那契数列 相关
+     * 矩阵 相关
      */
     static void do02Matrix(){
         DoScanner.doSth(62);		//  不同路径
