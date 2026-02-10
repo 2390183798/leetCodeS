@@ -24,7 +24,8 @@ public class TypeDtgh {
      * 矩阵 相关
      */
     static void do02Matrix(){
-        DoScanner.doSth(62);		//  不同路径
+//        DoScanner.doSth(62);		//  不同路径
+        DoScanner.doSth(64);		//  最小路径和
     }
 
 }
