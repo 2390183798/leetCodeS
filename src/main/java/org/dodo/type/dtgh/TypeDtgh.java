@@ -25,7 +25,8 @@ public class TypeDtgh {
      */
     static void do02Matrix(){
 //        DoScanner.doSth(62);		//  不同路径
-        DoScanner.doSth(64);		//  最小路径和
+//        DoScanner.doSth(64);		//  最小路径和
+        DoScanner.doSth(63);		//  不同路径 II
     }
 
 }
