@@ -28,7 +28,8 @@ public class TypeDtgh {
 //        DoScanner.doSth(64);		//  64. 最小路径和
 //        DoScanner.doSth(63);		//  63. 不同路径 II
 //        DoScanner.doSth(120);		//  120. 三角形最小路径和
-        DoScanner.doSth(931);		//  931. 下降路径最小和
+//        DoScanner.doSth(931);		//  931. 下降路径最小和
+        DoScanner.doSth(221);		//  221. 最大正方形
     }
 
 }
