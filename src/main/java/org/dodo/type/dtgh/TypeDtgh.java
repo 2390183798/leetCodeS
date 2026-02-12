@@ -17,16 +17,17 @@ public class TypeDtgh {
 //		DoScanner.doSth(1137);		// 第N个 泰波那契数
 //		DoScanner.doSth(746);		// 使用最小花费爬楼梯
 //        DoScanner.doSth(198);		// 打家劫舍
-        DoScanner.doSth(740);		// 删除并获得点数 ？？？
+//        DoScanner.doSth(740);		// 删除并获得点数 ？？？
     }
 
     /**
      * 矩阵 相关
      */
     static void do02Matrix(){
-//        DoScanner.doSth(62);		//  不同路径
-//        DoScanner.doSth(64);		//  最小路径和
-        DoScanner.doSth(63);		//  不同路径 II
+//        DoScanner.doSth(62);		//  62. 不同路径
+//        DoScanner.doSth(64);		//  64. 最小路径和
+//        DoScanner.doSth(63);		//  63. 不同路径 II
+        DoScanner.doSth(120);		//  120. 三角形最小路径和
     }
 
 }
